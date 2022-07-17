@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <h1>Signup Form</h1>
+ <br>
+ <form action="/signup" method="post">
+ <p th:text="${error}" style="color:red"></p>
+ FirstName <input type="text" name="fname"><br>
+ LastName <input type="text" name="lname"><br>
+ username<input type="text" name="username"><br>
+ Password <input type="password" name="password"><br>
+ Re-enter-password <input type="password" name="repassword"><br>
+ <input type="submit" value="Signup">
+ </form>
+</body>
+</html>
