@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>employee</title>
+<title>Employee Edit Form</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -24,12 +24,12 @@
 
 			<div class="card-body bd">
 
-				<form action="/employee" method="post">
+				<form action="/employee" method="post" th:object="${emodel}">
 
 					<div class="row p-2">
 						<div class="col-4">FirstName</div>
 						<div class="col-8">
-							<input type="text" name="fname" class="form-control">
+							<input type="text" th:field="*{fname}" class="form-control">
 						</div>
 					</div>
 
@@ -37,7 +37,7 @@
 					<div class="row p-2">
 						<div class="col-4">LastName</div>
 						<div class="col-8">
-							<input type="text" name="lname" class="form-control">
+							<input type="text" th:field="*{lname}" class="form-control">
 						</div>
 					</div>
 
@@ -54,70 +54,70 @@
 					<div class="row p-2">
 						<div class="col-4">Email</div>
 						<div class="col-8">
-							<input type="email" name="emai" class="form-control">
+							<input type="email" th:field="*{email}" class="form-control">
 						</div>
 					</div>
 
 					<div class="row p-2">
 						<div class="col-4">Phone</div>
 						<div class="col-8">
-							<input type="text" name="phone" class="form-control">
+							<input type="text" th:field="*{phone}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Company</div>
 						<div class="col-8">
-							<input type="text" name="company" class="form-control">
+							<input type="text" th:field="*{company}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Post</div>
 						<div class="col-8">
-							<input type="text" name="post" class="form-control">
+							<input type="text" th:field="*{post}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Department</div>
 						<div class="col-8">
-							<input type="text" name="department" class="form-control">
+							<input type="text" th:field="*{department}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Salary</div>
 						<div class="col-8">
-							<input type="text" name="salary" class="form-control">
+							<input type="text" th:field="*{salary}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Age</div>
 						<div class="col-8">
-							<input type="text" name="age" class="form-control">
+							<input type="text" th:field="*{age}" class="form-control">
 						</div>
 					</div>
 
 					<div class="row p-2">
 						<div class="col-4">Date</div>
 						<div class="col-8">
-							<input type="date" name="dob" class="form-control">
+							<input type="date" th:field="*{dob}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Date Of Birth</div>
 						<div class="col-8">
-							<input type="date" name="joinDate" class="form-control">
+							<input type="date" th:field="*{joinDate}" class="form-control">
 						</div>
 					</div>
 					<div class="row p-2">
 						<div class="col-4">Country</div>
 						<div class="col-8">
-							<input type="text" name="address.country" class="form-control">
+							<input type="text" th:field="*{address.country}" class="form-control">
 						</div>
 					</div>
 
 					<div class="row p-2">
 						<div class="col-4">City</div>
 						<div class="col-8">
-							<input type="text" name="address.city" class="form-control">
+							<input type="text" th:field="*{address.city}" class="form-control">
 						</div>
 					</div>
 
@@ -126,7 +126,7 @@
 						<div class="col-4">State</div>
 						<div class="col-8">
 							
-							<select name="address.state" class="form-control">
+							<select th:field="*{address.state}" class="form-control">
 							
 							  <option value=""> Select </option>
 							  <option value="state-1"> state-1 </option>
@@ -146,22 +146,22 @@
 					<div class="row p-2">
 						<div class="col-4">ZipCode</div>
 						<div class="col-8">
-							<input type="text" name="address.zip" class="form-control">
+							<input type="text" th:field="*{address.zip}" class="form-control">
 						</div>
 					</div>
 
 					<div class="row p-2">
 						<div class="col-4">Projects</div>
 						<div class="col-8">
-							<input type="checkbox" name="projects" multiple="multiple"
+							<input type="checkbox" th:field="*{projects}" multiple="multiple"
 								value="proj_1" class="p-3"> Project-1 <input
-								type="checkbox" name="projects" multiple="multiple"
+								type="checkbox" th:field="*{projects}" multiple="multiple"
 								value="proj_2" class="px-3"> Project-2 <input
-								type="checkbox" name="projects" multiple="multiple"
+								type="checkbox" th:field="*{projects}" multiple="multiple"
 								value="proj_3" class="px-3"> Project-3 <input
-								type="checkbox" name="projects" multiple="multiple"
+								type="checkbox" th:field="*{projects}" multiple="multiple"
 								value="proj_4" class="px-3"> Project-4 <input
-								type="checkbox" name="projects" multiple="multiple"
+								type="checkbox" th:field="*{projects}" multiple="multiple"
 								value="proj_5" class="px-3"> Project-5
 						</div>
 					</div>
@@ -172,6 +172,8 @@
 								class="form-control btn btn-primary">
 						</div>
 					</div>
+					<input type="hidden" th:field="*{id}">
+					<input type="hidden" th:field="*{address.id}">
 
 				</form>
 			</div>
