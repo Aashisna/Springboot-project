@@ -11,26 +11,39 @@
 <style>
 table {
   font-family: arial, sans-serif;
+   border: 2px solid black;
   border-collapse: collapse;
   width: 80%;
 }
 
-tr, th {
-  border: 1px solid black;
+.top tr{ 
+ border: 2px solid black;
+  border-collapse: collapse;
   text-align: center;
-  padding: 8px;  border-collapse: collapse;
-}
-td{  border: 1px solid black;
+  padding: 8px;  }
+  
+.top th{ 
+ border: 2px solid black;
+  border-collapse: collapse;
   text-align: center;
-  padding: 8px;  border-collapse: collapse;}
+  padding: 8px;  }
+
+
+.body td{ 
+ border: 2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 8px;  }
 
 .center{  margin-left: auto; 
   margin-right: auto;}
  .body{ background-color:#4CB089;}
  .top{background-color:#37A577;}
+  
 </style>
 </head>
 <body>
+ <div th:insert="Header.html"></div>
 	<h1 class="text-center py-1">Employee List</h1>
 
 	<table class="center">
@@ -43,9 +56,8 @@ td{  border: 1px solid black;
 				<th>Phone</th>
 				<th>City</th>
 				<th>Country</th>
-				<th></th>
+				<th>Action</th>
 			</tr>
-
 		</thead>
 		<tbody class="body">
 			<tr th:each="emp: ${emplist}">
@@ -60,9 +72,9 @@ td{  border: 1px solid black;
 					<a th:href="@{/delete(id=${emp.id})}"><input type="submit" value="Delete" class="btn btn-danger"></a>
 				</td>
 			</tr>
-
 		</tbody>
-		<tbody></tbody>
 	</table>
+	<br><br>
+	<div th:insert="Footer.html"></div>
 </body>
 </html>
