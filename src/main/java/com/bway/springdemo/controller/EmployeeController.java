@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bway.springdemo.model.Employee;
 import com.bway.springdemo.repository.EmployeeRepository;
+import com.bway.springdemo.service.EmployeeService;
 
 @Controller
 public class EmployeeController {
 	@Autowired
-	private EmployeeRepository empRepo;
+	private EmployeeService service;
 	
 	@GetMapping("/employee")
 	public String ShowEmployeeForm() {
@@ -26,31 +27,31 @@ public class EmployeeController {
 	@PostMapping("/employee")
 	public String saveEmployee(@ModelAttribute Employee  emp) {
 		
-		empRepo.save(emp);
+		service.addEmp(emp);
 		return "EmployeeForm";
 	}
 	@GetMapping("/list")
 	public String getAllEmployee( Model model)
 	{
-		model.addAttribute("emplist",empRepo.findAll());
+		model.addAttribute("emplist",service.getAllEmp());
 		return "EmployeeList";
 	}
 	@GetMapping("/delete")
 	public String delete(@RequestParam Long id)
 	{
-		empRepo.deleteById(id);
+		service.deleteEmp(id);
 		return "redirect:/list";
 	}
 	@GetMapping("/edit")
 	public String delete(@RequestParam Long id, Model model)
 	{
-		model.addAttribute("emodel",empRepo.getById(id));
+		model.addAttribute("emodel",service.getById(id));
 		return "EditForm";
 	}
 	@PostMapping("/update")
 	public String update(@ModelAttribute Employee emp)
 	{
-		empRepo.save(emp);
+		service.updateEmp(emp);
 		return "redirect:/list";
 	}
 

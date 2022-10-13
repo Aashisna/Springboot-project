@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" >
+</head>
+<body>
+<div th:insert="Header.html"></div>
+<div class="container py-4">
+<form action="/upload" method="post" enctype="multipart/form-data" class="bg-primary py-5 text-center">
+ Select: <input type="file" name="image"> <br><br>
+         <input type="submit" value="Upload" class="btn btn-success">
+</form>
+<p>[[${msg}]]</p>
+</div>
+<div th:insert="Footer.html"></div>
+</body>
+</html>
